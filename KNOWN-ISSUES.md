@@ -15,7 +15,7 @@ Each item keeps its version 1 number. **Status** is one of:
 
 | # | Issue | Status | What version 2 does / what is left |
 |---|---|---|---|
-| 1.1 | It is not online. | **Fixed** | Live at https://piranb13.github.io/growing-futures-maths/ with the API on Supabase (project `ttxhffuxxyztcwxvzuuo`). GitHub Actions redeploys both on every push. Still to do: first-time setup, then a test from a second device. |
+| 1.1 | It is not online. | **Fixed** | Live at https://piranb13.github.io/growing-futures-maths/ with the API on Supabase (project `ttxhffuxxyztcwxvzuuo`). GitHub Actions redeploys both on every push. First-time setup done (17 November 2026). Still to do: a test from a second device. |
 | 1.2 | The first person to open a fresh install becomes the admin. | **Fixed** | First-time setup needs the `SETUP_CODE` secret. Without the right code, setup is refused. |
 | 1.3 | A locked-out sole staff member cannot get back in. | **Fixed** | Staff can reset each other's passwords. A locked-out member of staff can set a new password from the login page with the setup code. The last staff account cannot be removed. |
 | 1.4 | No maths teacher has checked the questions or lessons. | Open | Still needs your maths lead to go through Curriculum and videos > Preview for all 140 topics. |
@@ -64,7 +64,7 @@ Each item keeps its version 1 number. **Status** is one of:
 - **Screen readers:** not tried.
 - **Printing:** not on a real printer.
 - **Touch drawing:** not with a real finger or stylus.
-- **The live Supabase deployment:** the full test suite runs against an in-memory copy of Postgres (PGlite). On the live Supabase project only this has been checked: the API starts, creates its tables, answers from the GitHub Pages address, and the site shows the setup screen. After first-time setup, check a student login, a practice question and a timed quiz on the live site.
+- **The live Supabase deployment:** the full test suite runs against an in-memory copy of Postgres (PGlite). On the live Supabase project this has been checked: the API starts, creates its tables, answers from the GitHub Pages address, and first-time setup works (so password hashing works on Supabase's Deno runtime). Still to check on the live site: a student login, a practice question and a timed quiz. (The first deploy failed on setup because `Buffer` is not a global in Deno; fixed, and `test/deno-compat.test.mjs` now guards against it.)
 - **Many students at once:** Postgres handles many writers, but nothing has been load-tested. The Edge Function uses up to 4 database connections per running copy.
 - **Slow connections and school web filters**, which may block `*.supabase.co`, `github.io` or the YouTube player. Ask your IT provider to allow them.
 - **The browser screens have no automatic tests in the repository.** `npm test` covers the question bank, the marking rules and the API. The screens were checked by hand in a browser at phone and desktop size.

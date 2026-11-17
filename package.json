@@ -9,7 +9,7 @@
     "build": "node scripts/build-content.mjs",
     "dev": "node scripts/build-content.mjs && node dev/server.mjs",
     "demo": "node scripts/build-content.mjs && node dev/server.mjs --demo",
-    "test": "node scripts/build-content.mjs && node test/content.test.mjs && node test/marking.test.mjs && node test/api.test.mjs"
+    "test": "node scripts/build-content.mjs && node test/content.test.mjs && node test/marking.test.mjs && node test/deno-compat.test.mjs && node test/api.test.mjs"
   },
   "devDependencies": {
     "@electric-sql/pglite": "0.3.4"

@@ -15,7 +15,7 @@ Each item keeps its version 1 number. **Status** is one of:
 
 | # | Issue | Status | What version 2 does / what is left |
 |---|---|---|---|
-| 1.1 | It is not online. | **Partly fixed** | GitHub Actions deploys the API to Supabase and the website to GitHub Pages on every push (README, "Put it online"). Someone still has to create the Supabase project, add the three settings and test from a second device. |
+| 1.1 | It is not online. | **Fixed** | Live at https://piranb13.github.io/growing-futures-maths/ with the API on Supabase (project `ttxhffuxxyztcwxvzuuo`). GitHub Actions redeploys both on every push. Still to do: first-time setup, then a test from a second device. |
 | 1.2 | The first person to open a fresh install becomes the admin. | **Fixed** | First-time setup needs the `SETUP_CODE` secret. Without the right code, setup is refused. |
 | 1.3 | A locked-out sole staff member cannot get back in. | **Fixed** | Staff can reset each other's passwords. A locked-out member of staff can set a new password from the login page with the setup code. The last staff account cannot be removed. |
 | 1.4 | No maths teacher has checked the questions or lessons. | Open | Still needs your maths lead to go through Curriculum and videos > Preview for all 140 topics. |
@@ -64,7 +64,7 @@ Each item keeps its version 1 number. **Status** is one of:
 - **Screen readers:** not tried.
 - **Printing:** not on a real printer.
 - **Touch drawing:** not with a real finger or stylus.
-- **The live Supabase deployment:** version 2 was tested against an in-memory copy of Postgres (PGlite) that runs the same SQL. It has not yet run on a real Supabase project. The first deploy should be checked end to end: setup, a student login, a practice question, a timed quiz.
+- **The live Supabase deployment:** the full test suite runs against an in-memory copy of Postgres (PGlite). On the live Supabase project only this has been checked: the API starts, creates its tables, answers from the GitHub Pages address, and the site shows the setup screen. After first-time setup, check a student login, a practice question and a timed quiz on the live site.
 - **Many students at once:** Postgres handles many writers, but nothing has been load-tested. The Edge Function uses up to 4 database connections per running copy.
 - **Slow connections and school web filters**, which may block `*.supabase.co`, `github.io` or the YouTube player. Ask your IT provider to allow them.
 - **The browser screens have no automatic tests in the repository.** `npm test` covers the question bank, the marking rules and the API. The screens were checked by hand in a browser at phone and desktop size.

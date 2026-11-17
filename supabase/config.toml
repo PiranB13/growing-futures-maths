@@ -1,0 +1,6 @@
+# Supabase settings for this project. The platform uses one Edge Function, "api".
+# It checks its own logins, so Supabase's JWT check is switched off for it.
+project_id = "growing-futures-maths"
+
+[functions.api]
+verify_jwt = false

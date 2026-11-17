@@ -160,7 +160,7 @@ r = await stu('GET', '/api/topic/l2-n1'); ok(r.data.video && r.data.video.includ
 r = await stu('GET', '/api/me'); ok(r.data.options.youtubeSearch === false && r.data.options.idleMinutes === 20, 'YouTube search link off by default (1.7), 20 minute idle log-out (1.11)');
 r = await admin('GET', '/api/admin/curriculum?level=e2'); ok(r.data.topics.length === 27 && r.data.blocks.length === 6, 'curriculum listing');
 r = await admin('GET', '/api/admin/preview/e1-count'); ok(r.data.q.fig.includes('<svg') && r.data.solution.steps.length, 'question preview');
-r = await admin('POST', '/api/admin/settings', { brand: { name: 'Growing Futures Cornwall', primary: '#123456', accent: 'not-a-colour' } }); ok(r.data.brand.primary === '#123456' && r.data.brand.accent === '#e0a526', 'branding saved, bad colour ignored');
+r = await admin('POST', '/api/admin/settings', { brand: { name: 'Growing Futures Cornwall', primary: '#123456', accent: 'not-a-colour' } }); ok(r.data.brand.primary === '#123456' && r.data.brand.accent === '#dda23c' && r.data.brand.logo === 'brand/gf-logo.png', 'branding saved, bad colour ignored, Growing Futures logo kept');
 r = await admin('POST', '/api/admin/settings', { options: { youtubeSearch: true }, privacy: 'Our notice' }); ok(r.data.options.youtubeSearch === true, 'options saved');
 r = await anon('GET', '/api/privacy'); ok(r.data.text === 'Our notice', 'privacy notice readable before login (1.10)');
 r = await admin('POST', '/api/admin/block', { userIds: [made[2].id], block: 4 }); r = await admin('GET', '/api/admin/students/' + made[2].id); ok(r.data.student.block === 4, 'move to another half term');

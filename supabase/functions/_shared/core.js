@@ -13,7 +13,8 @@ import { ensureSchema } from './schema.js';
 const SESSION_HOURS = 12;
 const TERMS = ['Autumn', 'Spring', 'Summer'];
 const KINDS = ['halfterm', 'term', 'mock', 'check', 'custom'];
-const BRAND_DEFAULT = { name: 'Growing Futures Cornwall', product: 'Maths', primary: '#234d45', accent: '#e0a526', logo: '' };
+/* defaults from the Growing Futures Cornwall website (growingfuturesredesign): forest green, warm gold, the circular logo */
+const BRAND_DEFAULT = { name: 'Growing Futures Cornwall', product: 'Maths', primary: '#265940', accent: '#dda23c', logo: 'brand/gf-logo.png' };
 const OPTIONS_DEFAULT = { youtubeSearch: false, idleStudent: 20, idleStaff: 60 };
 export const PRIVACY_DEFAULT = `DRAFT - Growing Futures must check and change this before real students use the platform.
 

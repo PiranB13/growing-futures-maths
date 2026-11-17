@@ -7,6 +7,7 @@
    createApi({db, env}) returns handle(request, {ip}) -> Response.
    db must offer:  query(sql, params) -> rows   and   exec(sql) for several statements.  */
 import crypto from 'node:crypto';
+import { Buffer } from 'node:buffer'; // Supabase runs Deno 2, where Buffer is not a global as it is in Node
 import C from './content.js';
 import { ensureSchema } from './schema.js';
 
